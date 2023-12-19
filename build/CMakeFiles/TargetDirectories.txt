@@ -1,0 +1,3 @@
+/home/wjz/聊天服务器_作业/build/CMakeFiles/server.dir
+/home/wjz/聊天服务器_作业/build/CMakeFiles/edit_cache.dir
+/home/wjz/聊天服务器_作业/build/CMakeFiles/rebuild_cache.dir
