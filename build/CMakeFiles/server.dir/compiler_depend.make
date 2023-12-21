@@ -95,8 +95,19 @@ CMakeFiles/server.dir/server.cpp.o: ../server.cpp \
   /usr/include/netinet/in.h \
   /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
   /usr/include/x86_64-linux-gnu/bits/in.h \
-  /usr/include/arpa/inet.h
+  /usr/include/arpa/inet.h \
+  /usr/include/x86_64-linux-gnu/sys/epoll.h \
+  /usr/lib/gcc/x86_64-linux-gnu/10/include/stdint.h \
+  /usr/include/stdint.h \
+  /usr/include/x86_64-linux-gnu/bits/wchar.h \
+  /usr/include/x86_64-linux-gnu/bits/epoll.h
 
+
+/usr/include/x86_64-linux-gnu/bits/epoll.h:
+
+/usr/include/x86_64-linux-gnu/bits/wchar.h:
+
+/usr/include/stdint.h:
 
 /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
 
@@ -246,6 +257,8 @@ CMakeFiles/server.dir/server.cpp.o: ../server.cpp \
 
 /usr/include/linux/close_range.h:
 
+/usr/lib/gcc/x86_64-linux-gnu/10/include/stdint.h:
+
 /usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
 
 /usr/include/asm-generic/bitsperlong.h:
@@ -263,6 +276,8 @@ CMakeFiles/server.dir/server.cpp.o: ../server.cpp \
 /usr/include/x86_64-linux-gnu/bits/in.h:
 
 /usr/include/x86_64-linux-gnu/c++/10/bits/os_defines.h:
+
+/usr/include/x86_64-linux-gnu/sys/epoll.h:
 
 /usr/include/x86_64-linux-gnu/bits/waitflags.h:
 
