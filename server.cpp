@@ -7,11 +7,15 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <sys/epoll.h>
-
+#include <vector>
 #define MAX_EVENTS 10
 
 int main()
 {
+
+    std::vector<int> clientSockets;
+    char username[12];
+    char msg[1024];
     int sockfd = socket(PF_INET, SOCK_STREAM, 0);
     assert(sockfd != -1);
 
@@ -58,12 +62,15 @@ int main()
                 ev.data.fd = c;
                 res = epoll_ctl(epollfd, EPOLL_CTL_ADD, c, &ev);
                 assert(res != -1);
+                clientSockets.push_back(c);
             }
             else
             {
                 int c = events[i].data.fd;
                 char buf[128] = {0};
                 int n = recv(c, buf, sizeof(buf) - 1, 0);
+                char temp[128];
+                strcpy(temp,buf);
                 printf("buf,strlen:%d",strlen(buf));
                 if (n <= 0)
                 {
@@ -102,10 +109,21 @@ int main()
                     for (int i = 0; i < 3; i++) {
                         printf("Substring %d: %s\n", i + 1, substrings[i]);
                     }
-                    if ((strcmp(substrings[0], "msg") == 0 )&& (strcmp(substrings[1], "msg") == 0))
+                    if ((strcmp(substrings[0], "msg") == 0 ))
                     {
-                        send(c, substrings[2], strlen(substrings[2])+1, 0);
+                        // send(c, substrings[2], strlen(substrings[2])+1, 0);
                         printf("send number is%s\n",substrings[2]);
+                        strcpy(username,substrings[1]);
+                        printf("username %s\n", username);
+                        strcpy(msg,substrings[2]);
+                        for (int cli : clientSockets)
+                        {
+                            if (cli!= c)
+                            {
+                                send(cli, temp, strlen(temp)+1, 0);
+                            }   
+                        }
+                        
                     }else
                     {
                         int filesize = atoi(substrings[1]);
